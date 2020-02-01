@@ -24,8 +24,8 @@ public class Movement0 : MonoBehaviour
         float v = Input.GetAxis("Vertical") * motorForce;
         float h = Input.GetAxis("Horizontal") * steerForce;
 
-        wheel1.motorTorque = v;
-        wheel2.motorTorque = v;
+        wheel1.motorTorque = 2000;
+        wheel2.motorTorque = 2000;
 
         wheel3.steerAngle = h;
         wheel4.steerAngle = h;
