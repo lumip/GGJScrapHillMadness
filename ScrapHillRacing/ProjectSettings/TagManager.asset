@@ -6,7 +6,17 @@ TagManager:
   tags:
   - leftwheel
   - rightwheel
-  - Car  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Water
+  - UI
+  - PostProcessing
+  - Car
+  - hazard
+  - ground
+  - flyinghazard
+  layers:
   - Default
   - TransparentFX
   - Ignore Raycast
@@ -15,7 +25,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 
