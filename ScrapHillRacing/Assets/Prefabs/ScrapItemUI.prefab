@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7544420056552624660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7544420056552624682}
+  - component: {fileID: 7544420056552624683}
+  m_Layer: 0
+  m_Name: ScrapItemUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7544420056552624682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544420056552624660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.87, z: 1.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7544420056552624683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544420056552624660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cd21fd758d7c94493ec682a4895307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfItems: 3
+  listWidth: 0.8
+  selected: 0
+  ElementPrefab: {fileID: 6382769506687308860, guid: cd4c51423dc81e443ad25157377c1e0c,
+    type: 3}
+  ItemPrefabs:
+  - SceneModel: {fileID: 6996942015567445484, guid: 2935002fc7ef345b58f50a67be668d22,
+      type: 3}
+    UIObject: {fileID: 6996942015567445484, guid: 2935002fc7ef345b58f50a67be668d22,
+      type: 3}
+  - SceneModel: {fileID: 7411840777870946392, guid: c2dcf64a41aa542e58a16bbacc774c7e,
+      type: 3}
+    UIObject: {fileID: 7411840777870946392, guid: c2dcf64a41aa542e58a16bbacc774c7e,
+      type: 3}
+  - SceneModel: {fileID: 3580419287039188687, guid: 88283e9162da44fb78c7244ac0ea2f0a,
+      type: 3}
+    UIObject: {fileID: 3580419287039188687, guid: 88283e9162da44fb78c7244ac0ea2f0a,
+      type: 3}
+  - SceneModel: {fileID: 4398721316277511332, guid: 7366f5290c80545f1af0180de213b25c,
+      type: 3}
+    UIObject: {fileID: 824801885439723144, guid: a46cc0c6206dffc47a3cdc2d70b34d6b,
+      type: 3}
+  - SceneModel: {fileID: 1487189532804879549, guid: 3b4e5f63e94f34eb58277f83c9aecc40,
+      type: 3}
+    UIObject: {fileID: 2582935491505258002, guid: 21ecc201e8b826b4ebcb2656d11b1c98,
+      type: 3}
+  - SceneModel: {fileID: 6855203067173724048, guid: 2b2a01a186a3c4177b8f239e8b9b4a83,
+      type: 3}
+    UIObject: {fileID: 6855203067173724048, guid: 2b2a01a186a3c4177b8f239e8b9b4a83,
+      type: 3}
+  - SceneModel: {fileID: 100000, guid: 04cb8aeecdefd4578af0008c3378fb94, type: 3}
+    UIObject: {fileID: 3400868700483251256, guid: 2afad5df47c8e594da2db70a5f1912e6,
+      type: 3}
+  - SceneModel: {fileID: 100000, guid: d60049b3cc3a848859cff5e163ef64bc, type: 3}
+    UIObject: {fileID: 2864957783700501031, guid: 65d66dfeec4bb8348b89e5917a1a14cb,
+      type: 3}
+  - SceneModel: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+      type: 3}
+    UIObject: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+      type: 3}
+  SelectionButtonCooldown: 0.14
