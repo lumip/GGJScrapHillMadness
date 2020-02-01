@@ -166,7 +166,7 @@ MonoBehaviour:
   - {fileID: 1721008203}
   - {fileID: 1693358685}
   - {fileID: 437991967}
-  itemSelectorUI: {fileID: 0}
+  itemSelectorUI: {fileID: 792391555}
   SelectionButtonCooldown: 0.5
 --- !u!1 &437991965
 GameObject:
@@ -258,14 +258,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfItems: 3
   listWidth: 0.6
-  SelectedBounceHeight: 0.05
-  SelectedBounceSpeed: 8
   selected: 0
   ElementPrefab: {fileID: 6382769506687308860, guid: cd4c51423dc81e443ad25157377c1e0c,
     type: 3}
   ItemPrefabs:
-  - {fileID: 5913429872818386875, guid: 28b7983c401d66c42a388b8994ef760c, type: 3}
+  - {fileID: 5156658978999355873, guid: 2afad5df47c8e594da2db70a5f1912e6, type: 3}
   - {fileID: 2973056776646872810, guid: 4f6e3b2930b28de4d9aea550cd6e1cc2, type: 3}
+  - {fileID: 6563978737731131059, guid: 2830a0f099e1efd41a22e4004ee9d117, type: 3}
   SelectionButtonCooldown: 0.2
 --- !u!1 &895401583
 GameObject:
@@ -490,6 +489,7 @@ GameObject:
   - component: {fileID: 1584533104}
   - component: {fileID: 1584533107}
   - component: {fileID: 1584533108}
+  - component: {fileID: 1584533109}
   m_Layer: 0
   m_Name: CarFrame
   m_TagString: Car
@@ -541,7 +541,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f92b78a85bafc464c81f2d2eb66c36ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -595,6 +595,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ab6afef81631a347a5bba2fb2db7085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1584533109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584533102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e601592e30bac4c96f00422f04d772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1693358683
@@ -831,3 +843,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialWheelPrefab: {fileID: 2973056776646872810, guid: 4f6e3b2930b28de4d9aea550cd6e1cc2,
     type: 3}
+--- !u!1 &2065052733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065052736}
+  - component: {fileID: 2065052735}
+  - component: {fileID: 2065052734}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2065052734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065052733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &2065052735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065052733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &2065052736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065052733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
