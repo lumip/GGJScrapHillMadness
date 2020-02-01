@@ -8,17 +8,26 @@ public class ScrapItemSelectorUIElement : MonoBehaviour
     public float SelectedBounceSpeed;
     public Quaternion RotationSpeeds = Quaternion.identity;
     
-    public GameObject Model;
+    public UIScrapItem Item;
+
+    private GameObject _model;
 
     private float wasSelectedTime;
 
-    public void ChangeModel(GameObject model)
+    public void ChangeItem(UIScrapItem item)
     {
-        Destroy(Model);
-        Model = model;
-        Model.transform.SetParent(gameObject.transform, false);
-        Model.transform.localPosition = Vector3.zero;
-        Model.transform.localRotation = Quaternion.identity;
+        if (_model != null)
+            Destroy(_model);
+        _model = Instantiate(item.UIObject);
+        _model.transform.SetParent(gameObject.transform, false);
+        _model.transform.localPosition = Vector3.zero;
+        _model.transform.localRotation = Quaternion.identity;
+        Item = item;
+    }
+
+    public GameObject SceneModelPrefab
+    {
+        get { return Item.SceneModel; }
     }
 
     public bool IsSelected
@@ -45,11 +54,11 @@ public class ScrapItemSelectorUIElement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Model.transform.localPosition = Vector3.zero;
-        Model.transform.localRotation *= RotationSpeeds;
+        _model.transform.localPosition = Vector3.zero;
+        //_model.transform.localRotation *= RotationSpeeds;
         if (IsSelected)
         {
-            Model.transform.localPosition = new Vector3(
+            _model.transform.localPosition = new Vector3(
                 0.0f,
                 (1.0f + Mathf.Sin(SelectedBounceSpeed * (Time.time - wasSelectedTime))) / 2.0f * SelectedBounceHeight,
                 0.0f

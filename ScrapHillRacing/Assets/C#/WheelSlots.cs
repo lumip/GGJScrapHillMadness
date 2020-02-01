@@ -27,30 +27,22 @@ public class WheelSlots : MonoBehaviour
     void Start()
     {
         highlightMesh = GameObject.Instantiate(HighlightMeshPrefab);
-        lastTime = Time.time;
     }
 
-    private float lastTime;
     private float selectionButtonWait = 0.0f;
-    public float SelectionButtonCooldown = .2f;
-
+    public float SelectionButtonCooldown = 0.2f;
 
     // Update is called once per frame
     void Update()
     {
+
         if (selectionButtonWait <= 0.0f)
         {
-            bool isLeft = (Input.GetAxis("WheelSelection") < -0.1f) ? true : false;
-            bool isRight = (Input.GetAxis("WheelSelection") > 0.1f) ? true : false;
+            int direction = (Input.GetAxis("WheelSelection") < -0.1f) ? -1 : (Input.GetAxis("WheelSelection") > 0.1 ? 1 : 0);
 
-            if (isRight)
+            if (direction != 0)
             {
-                Selected = (Selected + 1) % Slots.Length;
-                selectionButtonWait = SelectionButtonCooldown;
-            }
-            if (isLeft)
-            {
-                Selected = (Selected - 1) % Slots.Length;
+                Selected = (Selected + direction + Slots.Length) % Slots.Length;
                 selectionButtonWait = SelectionButtonCooldown;
             }
         }
@@ -59,8 +51,8 @@ public class WheelSlots : MonoBehaviour
 
         if (Input.GetButtonDown("PlacePart"))
         {
-            Debug.Log(itemSelectorUI.SelectedItem);
-            Slots[selected].ChangeWheelModel(Instantiate(itemSelectorUI.SelectedItem));
+            Debug.Log(itemSelectorUI.SelectedSceneModelPrefab);
+            Slots[Selected].ChangeWheelModel(Instantiate(itemSelectorUI.SelectedSceneModelPrefab));
         }
     }
 }

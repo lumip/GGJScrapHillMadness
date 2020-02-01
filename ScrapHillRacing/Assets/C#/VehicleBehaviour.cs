@@ -35,24 +35,50 @@ public class VehicleBehaviour : MonoBehaviour
 
     private void Update()
     {
-        CheckWheels();
+        //CheckWheels();
 
-        WheelFixTest();
+        //WheelFixTest();
+    }
+
+    public float SteeringTorque;
+
+    public float MaxAngularVelocity = 10.0f;
+
+    public WheelCollider[] FrontWheels;
+
+    public WheelCollider[] BackWheels;
+
+    public float MotorTorque;
+
+    void UpdateWheelVisuals(WheelCollider wheel)
+    {
+        Vector3 position;
+        Quaternion rotation;
+        wheel.GetWorldPose(out position, out rotation);
+        wheel.gameObject.transform.rotation = rotation;
     }
 
     void Movement()
     {
-        Vector3 currentPos = transform.position;
+        float h = Input.GetAxis("Horizontal") * SteeringTorque;
 
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        foreach (var wheel in FrontWheels)
+        {
+            wheel.motorTorque = MotorTorque;
+            wheel.motorTorque = MotorTorque;
 
-        Vector3 nextPos = currentPos + new Vector3(h * steeringSpeed + (brokenWheelSteeringEffect * brokenSteeringEffect), 0, baseSpeed + (v * throttleSpeed));
+            wheel.steerAngle = h;
+            wheel.steerAngle = h;
 
+            UpdateWheelVisuals(wheel);
 
-        rb.AddForce(nextPos - currentPos);
+        }
+        foreach (var wheel in BackWheels)
+        {
+            UpdateWheelVisuals(wheel);
+        }
     }
-
+    
     void CheckWheels()
     {
         int rightWheelsAmount = -wheelsRight[0].transform.childCount - wheelsRight[1].transform.childCount;

@@ -12,13 +12,13 @@ public class ScrapItemSelectorUI : MonoBehaviour
     private ScrapItemSelectorUIElement[] elements;
 
     public ScrapItemSelectorUIElement ElementPrefab;
-    public GameObject[] ItemPrefabs;
+    public UIScrapItem[] ItemPrefabs;
 
-    public GameObject SelectedItem
+    public GameObject SelectedSceneModelPrefab
     {
         get
         {
-            return elements[selected].Model;
+            return elements[selected].SceneModelPrefab;
         }
     }
 
@@ -42,40 +42,38 @@ public class ScrapItemSelectorUI : MonoBehaviour
             elements[i].gameObject.transform.localRotation = Quaternion.identity;
 
             int randomIndex = (int)(Random.value * ItemPrefabs.Length);
-            elements[i].RotationSpeeds = Quaternion.Lerp(Quaternion.identity, Random.rotationUniform, 0.01f);
 
-            elements[i].ChangeModel(Instantiate(ItemPrefabs[randomIndex]));
+            elements[i].ChangeItem(ItemPrefabs[randomIndex]);
         }
         elements[selected].Select();
     }
 
     private float selectionButtonWait = 0.0f;
-    public float SelectionButtonCooldown = .1f;
+    public float SelectionButtonCooldown = .2f;
 
     // Update is called once per frame
     void Update()
     {
         if (selectionButtonWait <= 0.0f)
         {
-            bool isLeft = (Input.GetAxis("ItemSelection") < -0.1f) ? true : false;
-            bool isRight = (Input.GetAxis("ItemSelection") > 0.1f) ? true : false;
+            int direction = (Input.GetAxis("ItemSelection") < -0.1f) ? -1 : (Input.GetAxis("ItemSelection") > 0.1 ? 1 : 0);
 
-            if (isRight)
+            if (direction != 0)
             {
                 elements[selected].Deselect();
-                selected = (selected >= numberOfItems - 1) ? numberOfItems - 1 : selected + 1;
-                selectionButtonWait = SelectionButtonCooldown;
+                selected = (selected + direction + numberOfItems) % numberOfItems;
                 elements[selected].Select();
-            }
-            if (isLeft)
-            {
-                elements[selected].Deselect();
-                selected = (selected <= 0) ? 0 : selected - 1;
                 selectionButtonWait = SelectionButtonCooldown;
-                elements[selected].Select();
             }
         }
 
         selectionButtonWait = Mathf.Max(0.0f, selectionButtonWait - Time.deltaTime);
     }
+}
+
+[System.Serializable]
+public struct UIScrapItem
+{
+    public GameObject SceneModel;
+    public GameObject UIObject;
 }
