@@ -6,7 +6,7 @@ TagManager:
   tags:
   - leftwheel
   - rightwheel
-  layers:
+  - Car  layers:
   - Default
   - TransparentFX
   - Ignore Raycast
