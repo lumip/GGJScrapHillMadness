@@ -8,6 +8,7 @@ public class DamageSystem : MonoBehaviour
     public int hazardDamage;
 
     public float groundHazardForce;
+    public float flyingHazardForce;
 
     Rigidbody rb;
 
@@ -39,6 +40,11 @@ public class DamageSystem : MonoBehaviour
             float random1 = Random.Range(0, 5);
             float random2 = Random.Range(0, 5);
             rb.AddForce ((Vector3.up + new Vector3(random1, 0, random2).normalized) * groundHazardForce);
+        }
+
+        if (hazard.tag == "flyinghazard")
+        {
+            rb.AddForce(((transform.position - hazard.transform.position).normalized + Vector3.up) * flyingHazardForce);
         }
     }
 }
