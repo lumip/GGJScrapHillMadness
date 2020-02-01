@@ -59,6 +59,7 @@ public class WheelSlots : MonoBehaviour
 
         if (Input.GetButtonDown("PlacePart"))
         {
+            Debug.Log(itemSelectorUI.SelectedItem);
             Slots[selected].ChangeWheelModel(Instantiate(itemSelectorUI.SelectedItem));
         }
     }

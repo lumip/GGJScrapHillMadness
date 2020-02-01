@@ -166,6 +166,7 @@ MonoBehaviour:
   - {fileID: 1721008203}
   - {fileID: 1693358685}
   - {fileID: 437991967}
+  itemSelectorUI: {fileID: 0}
   SelectionButtonCooldown: 0.5
 --- !u!1 &437991965
 GameObject:
@@ -257,13 +258,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfItems: 3
   listWidth: 0.6
-  placeholderItem: {fileID: 5913429872818386875, guid: 28b7983c401d66c42a388b8994ef760c,
-    type: 3}
   SelectedBounceHeight: 0.05
   SelectedBounceSpeed: 8
   selected: 0
-  prototypeElement: {fileID: 0}
-  SelectionButtonCooldown: 0.5
+  ElementPrefab: {fileID: 6382769506687308860, guid: cd4c51423dc81e443ad25157377c1e0c,
+    type: 3}
+  ItemPrefabs:
+  - {fileID: 5913429872818386875, guid: 28b7983c401d66c42a388b8994ef760c, type: 3}
+  - {fileID: 2973056776646872810, guid: 4f6e3b2930b28de4d9aea550cd6e1cc2, type: 3}
+  SelectionButtonCooldown: 0.2
 --- !u!1 &895401583
 GameObject:
   m_ObjectHideFlags: 0

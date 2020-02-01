@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrapItemUIElementBehavior : MonoBehaviour
+public class ScrapItemSelectorUIElement : MonoBehaviour
 {
     public float SelectedBounceHeight;
     public float SelectedBounceSpeed;
     public Quaternion RotationSpeeds = Quaternion.identity;
+    
+    public GameObject Model;
 
     private float wasSelectedTime;
+
+    public void ChangeModel(GameObject model)
+    {
+        Destroy(Model);
+        Model = model;
+        Model.transform.SetParent(gameObject.transform, false);
+        Model.transform.localPosition = Vector3.zero;
+        Model.transform.localRotation = Quaternion.identity;
+    }
 
     public bool IsSelected
     {
@@ -18,16 +29,15 @@ public class ScrapItemUIElementBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    void Select()
+    public void Select()
     {
         IsSelected = true;
         wasSelectedTime = Time.time;
     }
 
-    void Deselect()
+    public void Deselect()
     {
         IsSelected = false;
     }
@@ -35,11 +45,11 @@ public class ScrapItemUIElementBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = Vector3.zero;
-        transform.localRotation *= RotationSpeeds;
+        Model.transform.localPosition = Vector3.zero;
+        Model.transform.localRotation *= RotationSpeeds;
         if (IsSelected)
         {
-            transform.localPosition = new Vector3(
+            Model.transform.localPosition = new Vector3(
                 0.0f,
                 (1.0f + Mathf.Sin(SelectedBounceSpeed * (Time.time - wasSelectedTime))) / 2.0f * SelectedBounceHeight,
                 0.0f
