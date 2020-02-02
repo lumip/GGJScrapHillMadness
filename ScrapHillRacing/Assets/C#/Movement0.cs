@@ -8,7 +8,10 @@ public class Movement0 : MonoBehaviour
     public float motorForce, steerForce;
     public float forwardForceIncrement;
     public int incrementFrequency;
-    public WheelCollider wheel1, wheel2, wheel3, wheel4;
+    //public WheelCollider wheel1, wheel2, wheel3, wheel4;
+
+    public WheelInfo[] FrontWheelInfos;
+    public WheelInfo[] BackWheelInfos;
 
     private float forwardForce;
 
@@ -22,19 +25,34 @@ public class Movement0 : MonoBehaviour
         InvokeRepeating("IncreaseMotorTorque", 10, incrementFrequency);
     }
 
+    void UpdateWheelVisuals(WheelInfo wheel)
+    {
+        Vector3 position;
+        Quaternion rotation;
+        wheel.WheelCollider.GetWorldPose(out position, out rotation);
+        wheel.WheelVisual.transform.rotation = rotation;
+        wheel.WheelVisual.transform.position = position;
+    }
+
     // Update is called once per frame
     void Update()
     {
-
         float v = Input.GetAxis("Vertical") * motorForce;
         float h = Input.GetAxis("Horizontal") * steerForce;
 
-        wheel1.motorTorque = motorForce;
-        wheel2.motorTorque = motorForce;
+        foreach (var wheelInfo in FrontWheelInfos)
+        {
+            var wheel = wheelInfo.WheelCollider;
+            wheel.steerAngle = h;
+            UpdateWheelVisuals(wheelInfo);
+        }
 
-        wheel3.steerAngle = h;
-        wheel4.steerAngle = h;
-
+        foreach (var wheelInfo in BackWheelInfos)
+        {
+            wheelInfo.WheelCollider.motorTorque = motorForce;
+            UpdateWheelVisuals(wheelInfo);
+        }
+        
         rb.AddForce(transform.forward * forwardForce);
     }
 
@@ -42,4 +60,11 @@ public class Movement0 : MonoBehaviour
     {
         forwardForce += forwardForceIncrement;
     }
+}
+
+[System.Serializable]
+public struct WheelInfo
+{
+    public WheelCollider WheelCollider;
+    public GameObject WheelVisual;
 }
