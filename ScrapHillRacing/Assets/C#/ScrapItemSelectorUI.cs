@@ -77,7 +77,7 @@ public class ScrapItemSelectorUI : MonoBehaviour
     private Vector3 GetItemBasePos(int index)
     {
         float distance = listWidth / ((float)numberOfItems - 1.0f);
-        return new Vector3(-(listWidth / 2) + index * distance, 0);
+        return new Vector3(-(listWidth / 2) + index * distance, 20.2f);
     }
 
     // Start is called before the first frame update
