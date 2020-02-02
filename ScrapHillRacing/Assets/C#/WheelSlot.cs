@@ -5,8 +5,9 @@ using UnityEngine;
 public class WheelSlot : MonoBehaviour
 {
     public GameObject InitialWheelModelPrefab;
+    public WheelCollider WheelCollider;
 
-    public GameObject wheelModel = null;
+    private GameObject wheelModel = null;
 
     public bool HasWheel
     {
@@ -25,6 +26,7 @@ public class WheelSlot : MonoBehaviour
         wheelModel.transform.SetParent(gameObject.transform, false);
         wheelModel.transform.localPosition = Vector3.zero;
         wheelModel.transform.localRotation = Quaternion.identity;
+        WheelCollider.enabled = true;
     }
 
     public float WheelLoseForceMagnitude = 100.0f;
@@ -59,6 +61,8 @@ public class WheelSlot : MonoBehaviour
             {
                 destroy.enabled = true;
             }
+
+            WheelCollider.enabled = false;
         }
     }
 

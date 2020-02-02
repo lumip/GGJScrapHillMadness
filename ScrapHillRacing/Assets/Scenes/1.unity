@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 0}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 0}
   WheelLoseForceMagnitude: 100
 --- !u!4 &54474812
 Transform:
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 0}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 0}
   WheelLoseForceMagnitude: 100
 --- !u!1 &279199601
 GameObject:
@@ -4078,7 +4078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 0}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 0}
   WheelLoseForceMagnitude: 100
 --- !u!4 &404989350
 Transform:
@@ -5462,7 +5462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 425771011}
   WheelLoseForceMagnitude: 100
 --- !u!1001 &507933606
 PrefabInstance:
@@ -8773,7 +8773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 0}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 0}
   WheelLoseForceMagnitude: 100
 --- !u!4 &715014054
 Transform:
@@ -11286,7 +11286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 110945826}
   WheelLoseForceMagnitude: 100
 --- !u!4 &985127747
 Transform:
@@ -13282,7 +13282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 1800256805}
   WheelLoseForceMagnitude: 100
 --- !u!1 &1261503110
 GameObject:
@@ -14289,7 +14289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
-  wheelModel: {fileID: 0}
+  WheelCollider: {fileID: 698292034}
   WheelLoseForceMagnitude: 100
 --- !u!4 &1354677310 stripped
 Transform:
