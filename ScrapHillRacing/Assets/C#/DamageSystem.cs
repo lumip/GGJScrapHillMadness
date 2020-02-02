@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DamageSystem : MonoBehaviour
@@ -34,6 +35,11 @@ public class DamageSystem : MonoBehaviour
     void Update()
     {
         lostWheelCountdown = Mathf.Max(lostWheelCountdown -= Time.deltaTime, 0.0f);
+
+        if (health <= 0)
+        {
+            Restart();
+        }
     }
 
 
@@ -74,5 +80,10 @@ public class DamageSystem : MonoBehaviour
         {
             rb.AddForce(((transform.position - hazard.transform.position).normalized + Vector3.up) * flyingHazardForce);
         }
+    }
+
+    void Restart ()
+    {
+        SceneManager.LoadScene("1");
     }
 }
