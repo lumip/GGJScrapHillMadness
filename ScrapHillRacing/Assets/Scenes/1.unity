@@ -531,8 +531,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+  InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!4 &54474812
 Transform:
   m_ObjectHideFlags: 0
@@ -2808,8 +2810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+  InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!1 &279199601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3067,8 +3071,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
-    type: 3}
+  InitialWheelModelPrefab: {fileID: 0}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!4 &292428375
 Transform:
   m_ObjectHideFlags: 0
@@ -4201,8 +4206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
-    type: 3}
+  InitialWheelModelPrefab: {fileID: 0}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!1 &404989348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4232,8 +4238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+  InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!4 &404989350
 Transform:
   m_ObjectHideFlags: 0
@@ -5048,8 +5056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
-    type: 3}
+  InitialWheelModelPrefab: {fileID: 0}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!1001 &470850696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6874,8 +6883,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
+  InitialWheelModelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
     type: 3}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!4 &715014054
 Transform:
   m_ObjectHideFlags: 0
@@ -7988,8 +7999,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841efdb99cd9ffd4e89dcd5558fd50d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialWheelPrefab: {fileID: 2976324776886021476, guid: de081580510bc47a0aba6a234e9cd3de,
-    type: 3}
+  InitialWheelModelPrefab: {fileID: 0}
+  wheelModel: {fileID: 0}
+  WheelLoseForceMagnitude: 100
 --- !u!4 &820431169
 Transform:
   m_ObjectHideFlags: 0
@@ -16105,7 +16117,7 @@ GameObject:
   - component: {fileID: 1728438880}
   m_Layer: 0
   m_Name: carPlaceholder
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16240,8 +16252,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   hazardDamage: 10
-  groundHazardForce: 2000
+  groundHazardForce: 1000
   flyingHazardForce: 5000
+  loseWheelProbability: 1
+  wheels:
+  - {fileID: 715014053}
+  - {fileID: 278153805}
+  - {fileID: 404989349}
+  - {fileID: 54474811}
 --- !u!114 &1728438880
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DestroySelf : MonoBehaviour
 {
+    public float Delay = 2.0f;
+
     void Start()
     {
-        Destroy(gameObject, 2);
+        Destroy(gameObject, Delay);
     }
 }
