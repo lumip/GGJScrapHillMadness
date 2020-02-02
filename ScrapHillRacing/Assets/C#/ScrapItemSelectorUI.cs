@@ -14,7 +14,7 @@ public class ScrapItemSelectorUI : MonoBehaviour
     /// </summary>
     public float listWidth;
 
-    private int selected = 0; // currently selected item index
+    private int _selected = 0; // currently selected item index
 
     /// <summary>
     /// UI slot instances
@@ -31,15 +31,47 @@ public class ScrapItemSelectorUI : MonoBehaviour
     /// </summary>
     public UIScrapItem[] ItemPrefabs;
 
+    public int Selected
+    {
+        get { return _selected; }
+        private set
+        {
+            Debug.Assert(value >= 0 && value < numberOfItems);
+            if (value != _selected)
+            {
+                elements[_selected].Deselect();
+                _selected = value;
+                elements[_selected].Select();
+            }
+        }
+    }
+
     /// <summary>
     /// Returns the prefab for the 3d scene model of the currently selected scrap part
     /// </summary>
-    public GameObject SelectedSceneModelPrefab
+    private GameObject SelectedSceneModelPrefab
     {
         get
         {
-            return elements[selected].SceneModelPrefab;
+            return elements[Selected].SceneModelPrefab;
         }
+    }
+
+    public UIScrapItem GetRandomItem()
+    {
+        int randomIndex = (int)(Random.value * ItemPrefabs.Length);
+        return ItemPrefabs[randomIndex];
+    }
+
+    /// <summary>
+    /// Returns a prefab of the scene model for the current selection and generates a new item for the slot.
+    /// </summary>
+    /// <returns></returns>
+    public GameObject ConsumeSelected()
+    {
+        GameObject sceneModel = SelectedSceneModelPrefab;
+        elements[Selected].ChangeItem(GetRandomItem());
+        return sceneModel;
     }
 
     private Vector3 GetItemBasePos(int index)
@@ -50,9 +82,7 @@ public class ScrapItemSelectorUI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        selected = numberOfItems / 2;
-        
+    {        
         elements = new ScrapItemSelectorUIElement[numberOfItems];
         for (int i = 0; i < numberOfItems; ++i)
         {
@@ -60,11 +90,9 @@ public class ScrapItemSelectorUI : MonoBehaviour
             elements[i].gameObject.transform.SetParent(gameObject.transform);
             elements[i].gameObject.transform.localPosition = GetItemBasePos(i);
 
-            int randomIndex = (int)(Random.value * ItemPrefabs.Length);
-
-            elements[i].ChangeItem(ItemPrefabs[randomIndex]);
+            elements[i].ChangeItem(GetRandomItem());
         }
-        elements[selected].Select();
+        Selected = numberOfItems / 2;
     }
 
     private float selectionButtonWait = 0.0f;
@@ -79,9 +107,7 @@ public class ScrapItemSelectorUI : MonoBehaviour
 
             if (direction != 0)
             {
-                elements[selected].Deselect();
-                selected = (selected + direction + numberOfItems) % numberOfItems;
-                elements[selected].Select();
+                Selected = (Selected + direction + numberOfItems) % numberOfItems;
                 selectionButtonWait = SelectionButtonCooldown;
             }
         }
