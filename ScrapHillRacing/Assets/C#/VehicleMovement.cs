@@ -26,11 +26,14 @@ public class VehicleMovement : MonoBehaviour
 
     void UpdateWheelVisuals(WheelInfo wheel)
     {
-        Vector3 position;
-        Quaternion rotation;
-        wheel.WheelCollider.GetWorldPose(out position, out rotation);
-        wheel.WheelVisual.transform.rotation = rotation;
-        wheel.WheelVisual.transform.position = position;
+        if (wheel.WheelCollider.enabled)
+        {
+            Vector3 position;
+            Quaternion rotation;
+            wheel.WheelCollider.GetWorldPose(out position, out rotation);
+            wheel.WheelVisual.transform.rotation = rotation;
+            wheel.WheelVisual.transform.position = position;
+        }
     }
 
     // Update is called once per frame
