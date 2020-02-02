@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &357522715624289823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6061201043966090923}
+  m_Layer: 0
+  m_Name: Flora_all
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6061201043966090923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357522715624289823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5408966927320988428}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6122918190978004713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5408966927320988428}
+  - component: {fileID: 2588243171171418585}
+  - component: {fileID: 3839691143642192574}
+  m_Layer: 0
+  m_Name: Flora_All
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5408966927320988428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122918190978004713}
+  m_LocalRotation: {x: 0.7141665, y: 0.1863277, z: 0.18790573, w: -0.64802754}
+  m_LocalPosition: {x: 238.89532, y: -25.090328, z: -17.01322}
+  m_LocalScale: {x: 0.351419, y: 1.0307473, z: 1.0390188}
+  m_Children: []
+  m_Father: {fileID: 6061201043966090923}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2588243171171418585
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122918190978004713}
+  m_Mesh: {fileID: 4300000, guid: 1f61d18aeb8ab43ebb456845520d84a8, type: 2}
+--- !u!23 &3839691143642192574
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122918190978004713}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 814bcd8232b434901a81c575510d1f23, type: 2}
+  - {fileID: 2100000, guid: 4503cdc4701d44e57acc913e6d1e2914, type: 2}
+  - {fileID: 2100000, guid: 5cf90acfd003346949824c6546b14b14, type: 2}
+  - {fileID: 2100000, guid: f447bbf9d2d8546f19116d21e575a408, type: 2}
+  - {fileID: 2100000, guid: ca8643ddf1c1d43d083aa1210ddcb6a7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0

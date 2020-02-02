@@ -16,6 +16,7 @@ TagManager:
   - hazard
   - ground
   - flyinghazard
+  - pickup
   layers:
   - Default
   - TransparentFX
