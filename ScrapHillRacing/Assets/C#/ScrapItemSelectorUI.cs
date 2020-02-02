@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class ScrapItemSelectorUI : MonoBehaviour
 {
-    public int numberOfItems;
+    /// <summary>
+    /// how many item slotsare in our list
+    /// </summary>
+    public int numberOfItems; 
+
+    /// <summary>
+    /// how wide the list is on the screen, in px
+    /// </summary>
     public float listWidth;
 
-    public int selected = 0;
+    private int selected = 0; // currently selected item index
 
+    /// <summary>
+    /// UI slot instances
+    /// </summary>
     private ScrapItemSelectorUIElement[] elements;
 
+    /// <summary>
+    /// Prefab for a UI slot (screen space game object with ScrapItemSelectorUIElement component)
+    /// </summary>
     public ScrapItemSelectorUIElement ElementPrefab;
+
+    /// <summary>
+    /// Inventory: our available scrap parts
+    /// </summary>
     public UIScrapItem[] ItemPrefabs;
 
+    /// <summary>
+    /// Returns the prefab for the 3d scene model of the currently selected scrap part
+    /// </summary>
     public GameObject SelectedSceneModelPrefab
     {
         get
@@ -39,7 +59,6 @@ public class ScrapItemSelectorUI : MonoBehaviour
             elements[i] = Instantiate(ElementPrefab.gameObject).GetComponent<ScrapItemSelectorUIElement>();
             elements[i].gameObject.transform.SetParent(gameObject.transform);
             elements[i].gameObject.transform.localPosition = GetItemBasePos(i);
-            elements[i].gameObject.transform.localRotation = Quaternion.identity;
 
             int randomIndex = (int)(Random.value * ItemPrefabs.Length);
 
@@ -74,6 +93,13 @@ public class ScrapItemSelectorUI : MonoBehaviour
 [System.Serializable]
 public struct UIScrapItem
 {
+    /// <summary>
+    /// The 3d scene model of the scrap item
+    /// </summary>
     public GameObject SceneModel;
+
+    /// <summary>
+    /// The 2d image game object of the scrap item (to be displayed on the UI/HUD)
+    /// </summary>
     public GameObject UIObject;
 }

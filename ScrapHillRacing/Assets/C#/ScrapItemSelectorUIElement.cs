@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class ScrapItemSelectorUIElement : MonoBehaviour
 {
-    public float SelectedBounceHeight;
+    public float SelectedBounceHeight; // in px
     public float SelectedBounceSpeed;
-    public Quaternion RotationSpeeds = Quaternion.identity;
     
     public UIScrapItem Item;
 
-    private GameObject _model;
+    private GameObject _uiModel; // ui image instance
 
     private float wasSelectedTime;
 
     public void ChangeItem(UIScrapItem item)
     {
-        if (_model != null)
-            Destroy(_model);
-        _model = Instantiate(item.UIObject);
-        _model.transform.SetParent(gameObject.transform, false);
-        _model.transform.localPosition = Vector3.zero;
-        _model.transform.localRotation = Quaternion.identity;
+        if (_uiModel != null)
+            Destroy(_uiModel);
+        _uiModel = Instantiate(item.UIObject);
+        _uiModel.transform.SetParent(gameObject.transform, false);
+        _uiModel.transform.localPosition = Vector2.zero;
         Item = item;
     }
 
@@ -54,14 +52,12 @@ public class ScrapItemSelectorUIElement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _model.transform.localPosition = Vector3.zero;
-        //_model.transform.localRotation *= RotationSpeeds;
-        if (IsSelected)
+        _uiModel.transform.localPosition = Vector3.zero;
+        if (IsSelected) // wiggle in excitement if selected :)
         {
-            _model.transform.localPosition = new Vector3(
+            _uiModel.transform.localPosition = new Vector3(
                 0.0f,
-                (1.0f + Mathf.Sin(SelectedBounceSpeed * (Time.time - wasSelectedTime))) / 2.0f * SelectedBounceHeight,
-                0.0f
+                (1.0f + Mathf.Sin(SelectedBounceSpeed * (Time.time - wasSelectedTime))) / 2.0f * SelectedBounceHeight
             );
                 
         }
